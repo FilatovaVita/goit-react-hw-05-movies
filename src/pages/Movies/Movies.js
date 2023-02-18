@@ -6,8 +6,7 @@ import { Searchbar } from '../../components/Searchbar/Searchbar';
 import { Loader } from '../../components/Loader/Loader';
 import { MovieList } from '../../components/MovieList/MovieList';
 
-export default function SearchPage() {
-  const [searchQuery, setSearchQuery] = useState('');
+export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -15,30 +14,25 @@ export default function SearchPage() {
 
   useEffect(() => {
     if (!query) return;
-
     const findMovies = async () => {
       setLoading(true);
-
       try {
         const films = await getSearchMovies(query);
-
         if (!films.length) {
-          return toast.error('Oooppss! Movies not found...', { icon: '❌' });
+          toast.error('Oooppss! Movies not found...', { icon: '❌' });
         }
         setMovies(films);
       } catch (error) {
-        return toast.error('Something wrong! Please reload the page!');
+        toast.error('Something wrong! Please reload the page!');
       } finally {
         setLoading(false);
       }
     };
-
     findMovies();
-  }, [query, searchQuery]);
+  }, [query]);
 
   const searchQueryFormSubmit = searchQuery => {
     setSearchParams({ searchQuery });
-    setSearchQuery(searchQuery);
     setMovies([]);
   };
 

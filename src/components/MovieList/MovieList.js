@@ -1,9 +1,9 @@
 import { useLocation } from 'react-router-dom';
 import noPoster from '../../images/noPoster.jpg';
-import {MovieLink, Rating, TitleRating, MovieListItem,
-Poster, Gallery} from './MovieList.styled';
-import PropTypes from 'prop-types';
-
+import {
+  MovieLink, Rating, TitleRating, MovieListItem,
+  Poster, Gallery, Cover,
+} from './MovieList.styled';
 
 
 export const MovieList = ({ movies }) => {
@@ -14,11 +14,12 @@ export const MovieList = ({ movies }) => {
       {movies.map(({ id, title, poster_path, vote_average }) => (
         <MovieListItem key={id}>
           <MovieLink to={`/movies/${id}`} state={{ from: location }}>
-            {poster_path ? (<Poster
+           <Cover> {poster_path ? (<Poster
               src={`https://image.tmdb.org/t/p/w300${poster_path}`}
               alt={title}
             />):(<Poster src={noPoster} alt={title} />
             )}
+           </Cover>
             <TitleRating>
               <b>{title}</b>
               {vote_average ? (
@@ -37,13 +38,4 @@ export const MovieList = ({ movies }) => {
     </Gallery>
   );
 };
-MovieList.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      poster_path: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      vote_average: PropTypes.number.isRequired,
-    })
-  ),
-};
+

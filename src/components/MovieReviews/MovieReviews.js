@@ -45,12 +45,4 @@ export default function MovieReviews() {
     </>
   );
 }
-MovieReviews.propTypes = {
-  reviews: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      author: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-    }),
-  ),
-};
+

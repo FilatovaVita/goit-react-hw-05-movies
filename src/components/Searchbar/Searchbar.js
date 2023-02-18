@@ -1,8 +1,6 @@
 import { FcSearch } from 'react-icons/fc';
 import PropTypes from 'prop-types';
 import { SearchWrapper, SearchForm, SearchFormBtn, SearchFormInput } from './Searchbar.styled';
-
-
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 

@@ -1,9 +1,12 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { FcFilmReel } from 'react-icons/fc';
-import { Container, Header, Logo, Link, Logoname } from './SharedLayout.styled';
 
-export const SharedLayout = () => {
+import { Container, Header, Logo, Link, Logoname } from './SharedLayout.styled';
+import { Loader } from '../Loader/Loader';
+import { ThemeSwitch } from '../../utils/ThemeSwitch';
+
+export function SharedLayout() {
   return (
     <Container>
       <Header>
@@ -16,12 +19,13 @@ export const SharedLayout = () => {
           <Link to="/" end>
             Home
           </Link>
-          <Link to="/search">Search Movies</Link>
+          <Link to="/movies">Search Movies</Link>
+          <ThemeSwitch />
         </nav>
       </Header>
-      <Suspense fallback={<div>Loading page...</div>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </Container>
   );
-};
+}

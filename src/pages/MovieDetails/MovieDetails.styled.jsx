@@ -30,15 +30,10 @@ export const Paragraph = styled.div`
 `;
 
 export const MoviePoster = styled.img`
-  width: 500px;
+  width: 100%;
   height: auto;
   border-radius: 15px;
-  object-fit: cover;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  &:hover {
-    transform: scale(1.03);
-
-  }`
+`;
 export const GenresList = styled.ul`
   display: flex;
   font-size: 16px;
@@ -48,10 +43,12 @@ export const GenresList = styled.ul`
 
 export const MainTittle = styled.p`
   font-weight: 700;
-font-size: 22px;`
+  font-size: 22px;
+`;
 
 export const DetailsTittles = styled.p`
-  font-weight: 500;`
+  font-weight: 500;
+`;
 export const GenresItem = styled.li`
   font-weight: 600;
   margin-right: 7px;
@@ -65,13 +62,13 @@ export const LinkReturn = styled(NavLink)`
   color: orange;
   font-weight: 500;
   width: 100px;
-  background-color: #3D3D3D;;
+  background-color: #3d3d3d;
   border-radius: 40px;
   transition: all 250ms ease-in-out;
+
   :hover {
     transform: scale(1.05);
-    box-shadow: inset 1px 1px 2px white,
-      inset -1px -1px 2px orange;
+    box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px orange;
   }
 `;
 
@@ -84,14 +81,15 @@ export const LinkCast = styled(NavLink)`
   color: orange;
   font-weight: 500;
   width: 100px;
-  background-color: #3D3D3D;;
+  background-color: #3d3d3d;
   border-radius: 40px;
   transition: all 250ms ease-in-out;
+
   :hover {
     transform: scale(1.05);
-    box-shadow: inset 1px 1px 2px white,
-      inset -1px -1px 2px orange;
+    box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px orange;
   }
+
   &.active {
     color: white;
     background-color: orange;
@@ -109,12 +107,21 @@ export const LinkRewiews = styled(NavLink)`
   background-color: #3D3D3D;;
   border-radius: 40px;
   transition: all 250ms ease-in-out;
+
   &.active {
     color: white;
     background-color: orange;
   }
-   :hover {
+
+  :hover {
     transform: scale(1.05);
     box-shadow: inset 1px 1px 2px white,
       inset -1px -1px 2px orange;
+`;
+export const Cover = styled.div`
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
 `;

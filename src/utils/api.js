@@ -54,5 +54,13 @@ export const getMovieReviews = async movieId => {
   return data.results;
 };
 
+export const getMovieTrailer = async movieId => {
+  const { data } = await axios(`/movie/${movieId}/videos`, {
+    params: {
+      api_key: KEY,
+    },
+  });
 
+  return data.results;
+};
 
