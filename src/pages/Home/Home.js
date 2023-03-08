@@ -9,8 +9,8 @@ import toast from 'react-hot-toast';
 export default function TrendMovie() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [moviesPerPage, setMoviesPerPage] = useState(19);
+  const [setCurrentPage] = useState(1);
+  const [moviesPerPage] = useState(19);
 
   useEffect(() => {
     const fetchMovieList = async () => {
