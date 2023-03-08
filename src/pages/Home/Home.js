@@ -41,15 +41,14 @@ export default function TrendMovie() {
     <div>
       <Tittle>Today Trending Movies </Tittle>
       {loading && <Loader />}
-      {!movies.length
-        ? <Toaster /> && <Poster src={noMovie} alt="" />
-        : <MovieList movies={movies} /> && (
-            <Pagination
-              paginate={paginate}
-              moviesPerPage={moviesPerPage}
-              totalMovies={movies.length}
-            />
-          )}
+      <Toaster />
+      {!movies.length && <Poster src={noMovie} alt="" />}
+      {movies.length && <MovieList movies={movies}></MovieList>}
+      <Pagination
+        paginate={paginate}
+        moviesPerPage={moviesPerPage}
+        totalMovies={movies.length}
+      ></Pagination>
     </div>
   );
 }
