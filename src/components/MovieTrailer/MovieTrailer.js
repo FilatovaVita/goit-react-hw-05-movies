@@ -47,7 +47,7 @@ export default function MovieTrailer() {
       <BtnTrailer onClick={() => setIsModalOpen(true)}>
         <FaYoutube style={{ width: 180, height: 80 }} />
       </BtnTrailer>
-      {!movieId && <img src={noMovie} alt="" />}
+      {!movieId && error && <img src={noMovie} alt="" />}
     </>
   );
 }
