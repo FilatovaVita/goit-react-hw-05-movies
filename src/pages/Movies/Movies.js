@@ -11,7 +11,7 @@ export default function Movies() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [currentPage, setCurrentPage] = useState(1);
+  const [setCurrentPage] = useState(1);
   const [moviesPerPage, setMoviesPerPage] = useState(19);
   const query = searchParams.get('searchQuery') ?? '';
 
