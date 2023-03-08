@@ -4,7 +4,9 @@ import { MovieList } from '../../components/MovieList/MovieList';
 import { Tittle } from './Home.styled';
 import { Pagination } from '../../components/Pagination/Pagination';
 import { Loader } from '../../components/Loader/Loader';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
+import noMovie from '../../images/noMovie.jpg';
+import { Poster } from '../../components/MovieList/MovieList.styled';
 
 export default function TrendMovie() {
   const [movies, setMovies] = useState([]);
@@ -39,12 +41,15 @@ export default function TrendMovie() {
     <div>
       <Tittle>Today Trending Movies </Tittle>
       {loading && <Loader />}
-      {movies.length && <MovieList movies={movies} />}
-      <Pagination
-        paginate={paginate}
-        moviesPerPage={moviesPerPage}
-        totalMovies={movies.length}
-      />
+      {!movies.length
+        ? <Toaster /> && <Poster src={noMovie} alt="" />
+        : <MovieList movies={movies} /> && (
+            <Pagination
+              paginate={paginate}
+              moviesPerPage={moviesPerPage}
+              totalMovies={movies.length}
+            />
+          )}
     </div>
   );
 }
