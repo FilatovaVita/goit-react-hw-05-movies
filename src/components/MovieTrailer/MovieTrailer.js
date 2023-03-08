@@ -35,7 +35,6 @@ export default function MovieTrailer() {
       .filter(trailer => trailer.name === 'Official Trailer')
       .map(trailer => trailer.key) + '';
 
-  console.log(key);
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -43,10 +42,10 @@ export default function MovieTrailer() {
   return (
     <>
       {loading && <Loader />}
-      {isModalOpen && <Modal onClose={closeModal} src={key} />}
       <BtnTrailer onClick={() => setIsModalOpen(true)}>
-        <FaYoutube style={{ width: 180, height: 80 }} />
+        <FaYoutube style={{ width: 180, height: 80, color: 'red' }} />
       </BtnTrailer>
+      {isModalOpen && <Modal onClose={closeModal} src={key} />}
       {!movieId && error && <img src={noMovie} alt="" />}
     </>
   );
