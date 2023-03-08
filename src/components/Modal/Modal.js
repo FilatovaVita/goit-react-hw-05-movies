@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Iframe from 'react-iframe';
-import { ModalField, ModalOverlay } from './Modal.styled';
+import { ModalOverlay } from './Modal.styled';
 
 export const Modal = ({ src, onClose }) => {
   useEffect(() => {
